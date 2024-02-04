@@ -3,27 +3,40 @@ import "../../Styles/charts.css";
 import ExpenseTable from "../ExpenseTable";
 import Graph from "../LineGraph";
 
-// function getMonthYear() {
-//   const currentDate = new Date();
-//   const month = currentDate.getMonth() + 1;
-//   const year = currentDate.getFullYear();
+type MonthlyDataType = {
+  id: number;
+  year: number;
+  month: number;
+  day: number;
+  rent_amount: number;
+  pkr: number;
+};
 
-//   const monthYear = year + "-" + month;
-//   return monthYear;
-// }
+function getDaysInMonth(year: number, month: number) {
+  const lastDayOfMonth = new Date(year, month, 0);
+  return lastDayOfMonth.getDate();
+}
+function prepareFetchedData(datarecived: MonthlyDataType[]) {
+  let days = getDaysInMonth(datarecived[0].year, datarecived[0].month);
+  console.log(days);
+
+  let label: string[] = [];
+  for (let i = 1; i <= days; i++) {
+    label[i] =
+      (i < 10 ? "0" : "") +
+      i.toString() +
+      "/" +
+      (datarecived[0].month < 10 ? "0" : "") +
+      datarecived[0].month.toString();
+  }
+  console.log(label);
+
+  // console.log(labels);
+}
 
 const Charts = () => {
-  const [monthlyData, setmonthlyData] = useState({
-    id: 0,
-    year: "",
-    month: "",
-    day: "",
-    rent_amount: 0,
-    pkr: 1,
-  });
-
+  const [monthlyData, setmonthlyData] = useState<MonthlyDataType[]>([]);
   const [selectedMonth, setselectedMonth] = useState("");
-
   function handleMonthSelection(event: any) {
     setselectedMonth(event.target.value);
   }
@@ -35,14 +48,20 @@ const Charts = () => {
         if (!response.ok) {
           throw new Error("Error Receiving response : " + response.status);
         }
-        const responseData = await response.json();
-        setmonthlyData(responseData);
+        setmonthlyData(await response.json());
       } catch (err) {
         console.log("Error Receiving Statistics Data : " + err);
       }
     }
     if (selectedMonth != "") getMonthlyData();
   }, [selectedMonth]);
+
+  useEffect(() => {
+    console.log(monthlyData);
+
+    console.log(monthlyData.length);
+    monthlyData.length == 0 ? null : prepareFetchedData(monthlyData);
+  }, [monthlyData]);
 
   return (
     <div className="charts">
