@@ -20,18 +20,24 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
   let days = getDaysInMonth(datarecived[0].year, datarecived[0].month);
   console.log(days);
 
-  let label: string[] = [];
+  let mapedGraphData: {
+    label: string[];
+    amount: number[];
+  } = { label: [], amount: Array(days).fill(-1) };
   for (let i = 1; i <= days; i++) {
-    label[i] =
+    mapedGraphData.label[i] =
       (i < 10 ? "0" : "") +
       i.toString() +
       "/" +
       (datarecived[0].month < 10 ? "0" : "") +
       datarecived[0].month.toString();
   }
-  console.log(label);
-
-  // console.log(labels);
+  for (let index = 0; index < datarecived.length; index++) {
+    mapedGraphData.amount[datarecived[index].day] =
+      datarecived[index].rent_amount;
+  }
+  // console.log(mapedGraphData);
+  return mapedGraphData;
 }
 
 const Charts = () => {
@@ -57,9 +63,7 @@ const Charts = () => {
   }, [selectedMonth]);
 
   useEffect(() => {
-    console.log(monthlyData);
-
-    console.log(monthlyData.length);
+    console.log(monthlyData); //Debug Purposes
     monthlyData.length == 0 ? null : prepareFetchedData(monthlyData);
   }, [monthlyData]);
 
