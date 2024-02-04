@@ -28,17 +28,13 @@ const ExpenseTable = () => {
         <h4>Percentage</h4>
         <h4>Total Expense</h4>
       </div>
-      {expenseData == null ? (
-        <ExpenseItem expense_amount={0} expense_title="0" />
-      ) : (
-        expenseData.map((item: any) => (
-          <ExpenseItem
-            expense_amount={item.expense_amount}
-            expense_title={item.expense_name}
-            key={item.expense_amount}
-          />
-        ))
-      )}
+      {expenseData.map((item: any) => (
+        <ExpenseItem
+          expense_amount={item.expense_amount}
+          expense_title={item.expense_name}
+          key={item.expense_amount}
+        />
+      ))}
     </div>
   );
 };
