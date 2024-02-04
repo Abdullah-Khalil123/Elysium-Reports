@@ -22,7 +22,7 @@ const SideInfo = () => {
       <div className="section3">
         <div className="sec3-margin">
           <p>Balance</p>
-          <h2>$12,043.95</h2>
+          <h2>100 rupy</h2>
           <div className="inoutcome">
             <IOutCome color={"rgb(55, 198, 115)"} />
             <IOutCome color={"rgb(81, 101, 235)"} />
