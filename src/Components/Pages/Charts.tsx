@@ -37,13 +37,13 @@ const Charts = () => {
         }
         const responseData = await response.json();
         setmonthlyData(responseData);
-        console.log(responseData); //DEBUG PURPOSE CONSOLE LOG
       } catch (err) {
         console.log("Error Receiving Statistics Data : " + err);
       }
     }
     if (selectedMonth != "") getMonthlyData();
   }, [selectedMonth]);
+
   return (
     <div className="charts">
       <div className="filters">
