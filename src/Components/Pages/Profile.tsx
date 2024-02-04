@@ -1,5 +1,22 @@
+async function handleClick() {
+  const response = await fetch("/Expenses/2024-02");
+  try {
+    if (!response.ok) {
+      throw new Error();
+    }
+    const data = await response;
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <div>
+      <button onClick={handleClick}>Profile</button>
+    </div>
+  );
 };
 
 export default Profile;

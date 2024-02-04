@@ -8,10 +8,16 @@ import cash from "../../Assets/Icons/cash.svg";
 import bars from "../../Assets/Icons/bars.svg";
 import { Link } from "react-router-dom";
 
+function handleURIs() {
+  if (window.location.pathname == "/") {
+    return (window.location.pathname += "Profile");
+  } else {
+    return window.location.pathname.substring(1);
+  }
+}
+
 const SideNav = () => {
-  const [activePage, setActivePage] = useState(
-    window.location.pathname.substring(1)
-  );
+  const [activePage, setActivePage] = useState(handleURIs());
   const [isExpanded, setisExpanded] = useState(true);
   const sideNavOptions = useRef<HTMLUListElement | null>(null);
 
