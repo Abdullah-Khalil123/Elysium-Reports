@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 
-.filters input[type = "date"] {
+.filters input[type = "month"] {
     padding: 5px 10px;
     font-family: "Roboto Mono",monospace;
     color: black;

@@ -4,7 +4,7 @@ async function handleClick() {
     if (!response.ok) {
       throw new Error();
     }
-    const data = await response;
+    const data = response;
     console.log(data.json());
   } catch (err) {
     console.log(err);
