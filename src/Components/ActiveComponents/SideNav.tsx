@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import "../Styles/SideNav.css";
-import profile from "../Assets/Icons/profile.svg";
-import chart from "../Assets/Icons/chart.svg";
-import pie from "../Assets/Icons/pie.svg";
-import setting from "../Assets/Icons/settings.svg";
-import cash from "../Assets/Icons/cash.svg";
-import bars from "../Assets/Icons/bars.svg";
+import "../../Styles/SideNav.css";
+import profile from "../../Assets/Icons/profile.svg";
+import chart from "../../Assets/Icons/chart.svg";
+import pie from "../../Assets/Icons/pie.svg";
+import setting from "../../Assets/Icons/settings.svg";
+import cash from "../../Assets/Icons/cash.svg";
+import bars from "../../Assets/Icons/bars.svg";
 import { Link } from "react-router-dom";
 
 const SideNav = () => {

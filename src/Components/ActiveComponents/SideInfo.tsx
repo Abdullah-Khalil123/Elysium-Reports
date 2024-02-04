@@ -1,4 +1,4 @@
-import "../Styles/SideInfo.css";
+import "../../Styles/SideInfo.css";
 import IOutCome from "../IOutCome";
 
 const SideInfo = () => {

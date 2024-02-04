@@ -1,6 +1,6 @@
-import "../Styles/NavBar.css";
-import message from "../Assets/Icons/message.svg";
-import bell from "../Assets/Icons/bell.svg";
+import "../../Styles/NavBar.css";
+import message from "../../Assets/Icons/message.svg";
+import bell from "../../Assets/Icons/bell.svg";
 
 const NavBar = () => {
   return (
