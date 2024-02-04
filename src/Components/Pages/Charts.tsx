@@ -47,7 +47,10 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
 
 const Charts = () => {
   const [monthlyData, setmonthlyData] = useState<MonthlyDataType[]>([]);
-  const [GraphData, setGraphData] = useState<GraphDataType>();
+  const [GraphData, setGraphData] = useState<GraphDataType>({
+    amount: Array(30).fill(21000),
+    label: Array(30).fill("00/00"),
+  });
   const [selectedMonth, setselectedMonth] = useState("");
   function handleMonthSelection(event: any) {
     setselectedMonth(event.target.value);
@@ -69,8 +72,6 @@ const Charts = () => {
   }, [selectedMonth]);
 
   useEffect(() => {
-    console.log(monthlyData); //Debug Purposes
-
     if (monthlyData.length != 0) {
       setGraphData(prepareFetchedData(monthlyData));
     }
