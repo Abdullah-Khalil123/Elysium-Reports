@@ -1,11 +1,11 @@
 async function handleClick() {
-  const response = await fetch("/Expenses/2024-02");
+  const response = await fetch("/api/Expenses/2024-02");
   try {
     if (!response.ok) {
       throw new Error();
     }
     const data = await response;
-    console.log(data);
+    console.log(data.json());
   } catch (err) {
     console.log(err);
   }
