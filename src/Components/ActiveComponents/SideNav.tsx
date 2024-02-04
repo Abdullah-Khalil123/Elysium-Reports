@@ -9,7 +9,9 @@ import bars from "../../Assets/Icons/bars.svg";
 import { Link } from "react-router-dom";
 
 const SideNav = () => {
-  const [activePage, setActivePage] = useState("Profile");
+  const [activePage, setActivePage] = useState(
+    window.location.pathname.substring(1)
+  );
   const [isExpanded, setisExpanded] = useState(true);
   const sideNavOptions = useRef<HTMLUListElement | null>(null);
 
