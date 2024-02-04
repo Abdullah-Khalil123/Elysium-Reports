@@ -1,0 +1,66 @@
+.charts{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.charts::-webkit-scrollbar {
+    display: none;
+  }
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filters input[type = "date"] {
+    padding: 5px 10px;
+    font-family: "Roboto Mono",monospace;
+    color: black;
+    font-size: 18px;
+    outline: none;
+    border: solid 1px rgba(0, 0, 0, 0.099);
+    border-radius: 5px;
+}
+
+select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px rgba(0, 0, 0, 0.099);
+    font-size: 18px;
+}
+
+.Chart{
+    margin-bottom: 20px;
+    background-color: white;
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.Chart p{
+    margin-top: 10px;
+    position: relative;
+}
+.Chart p::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(94, 116, 242);
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    border-radius: 10px;
+}
+@media screen and (max-width: 1700px){
+    .charts {
+        margin-right: 30px;
+    }
+
+}

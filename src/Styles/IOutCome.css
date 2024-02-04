@@ -1,0 +1,14 @@
+.CircularProgressbar-text {
+    transform: translate(-25%,10%);
+    font-size: 28px;
+}
+
+.IOutCome{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.textincomeoutcome{
+    margin: 0px 10px;
+}

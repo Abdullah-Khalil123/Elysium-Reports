@@ -1,0 +1,68 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Deposits{
+    width: 100%;
+}
+
+
+.headingsDepositTable th{
+    background-color: white;
+    text-align: start;
+    padding: 15px 15px 15px 10px;
+}
+
+.seperator{
+    height: 10px;
+}
+
+td{
+    font-size: 18px;
+    padding-left: 10px;
+}
+.headingsDepositTable:first-child th:first-child{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+
+.headingsDepositTable:last-child th:last-child{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.paymentStatus{
+    border-radius: 10px;
+    padding: 4px 8px;
+    color: white;
+    background-color: rgb(155, 245, 255);
+    width: fit-content;
+}
+.paymentStatus.Partial{
+    background-color: rgb(255, 200, 49);
+}
+
+.paymentStatus.Full{
+    background-color: rgb(83, 162, 76);
+}
+
+.paymentStatus.No{
+    background-color: rgb(250, 41, 96);
+}
+
+.dataName{
+    font-weight: bold;
+}
+
+.dataDate{
+    color: grey;
+}
+
+@media screen and (max-width: 1100px){
+    .Deposits {
+        margin-right: 30px;
+    }
+}

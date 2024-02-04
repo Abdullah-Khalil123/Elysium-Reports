@@ -1,0 +1,42 @@
+
+.col1{
+    display: flex;
+    align-items: center;
+}
+.col1 img{
+
+    margin-left: 10px;
+    margin-right: 20px;
+    height: 25px;
+    background-color: rgb(214, 245, 229);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.ExpenseItem{
+
+    padding: 5px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0px;
+    height: 40px;
+    text-align: center;
+}
+.ExpenseItem:hover{
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+}
+.col1, .col2 , .col3 {
+    width: 100px;
+}
+
+.col1, .col3 {
+    margin: 0px 10px;
+}
+
+.col3 h3{
+    text-align: end;
+    color: rgb(46, 192, 106);
+}

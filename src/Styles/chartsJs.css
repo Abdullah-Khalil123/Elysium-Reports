@@ -1,0 +1,27 @@
+.lineChart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    aspect-ratio: 2 / 1;
+    min-height: 300px;
+}
+
+.polarChart{
+    width: 30%;
+    min-width: 300px;
+    height: 60%;
+    min-height: 300px;
+}
+
+.Lineandpolar{
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}

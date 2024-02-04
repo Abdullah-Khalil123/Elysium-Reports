@@ -1,0 +1,104 @@
+.SideNav{
+
+    position: sticky;
+    top: 0px ;
+
+    height: 100vh;
+    max-width: 300px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.4s;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 0px 20px 20px 0px;
+
+
+}
+
+.collapsed{
+    max-width: 80px;
+    min-width: 80px;
+}
+.nav-header{
+    user-select: none;
+}
+.nav-header-icon{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.nav-header-icon img{
+    cursor: pointer;
+}
+
+.nav-header-icon img{
+    height: 25px;
+    min-width: 25px;
+    max-width: 25px;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav-header-icon img:hover{
+    background-color: rgba(128, 128, 128, 0.164);
+}
+
+.nav-list{
+    font-size: 18px;
+    width: 100%;
+    margin-top: 160px;
+    list-style: none;
+    
+}
+
+.liLink{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-list .liLink img{
+    height: 25px;
+    min-width: 25px;
+    max-width: 25px;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.nav-list .liLink{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.nav-list .liLink p{
+    width: 100%;
+}
+.nav-list .liLink:hover{
+    background-color: rgba(128, 128, 128, 0.181);
+    border-radius: 5px;
+}
+.nav-list .liLink:hover > .borderline{
+    background-color: #29bd66;
+
+}
+.borderline{
+    height: 50px;
+    background-color: rgba(128, 128, 128, 0.685);
+    min-width: 8px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+
+.borderline.Active{
+    background-color: #29bd66;
+}
