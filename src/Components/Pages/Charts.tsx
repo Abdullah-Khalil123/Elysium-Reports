@@ -12,6 +12,11 @@ type MonthlyDataType = {
   pkr: number;
 };
 
+type GraphDataType = {
+  label: string[];
+  amount: number[];
+};
+
 function getDaysInMonth(year: number, month: number) {
   const lastDayOfMonth = new Date(year, month, 0);
   return lastDayOfMonth.getDate();
@@ -20,10 +25,10 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
   let days = getDaysInMonth(datarecived[0].year, datarecived[0].month);
   console.log(days);
 
-  let mapedGraphData: {
-    label: string[];
-    amount: number[];
-  } = { label: [], amount: Array(days).fill(-1) };
+  let mapedGraphData: GraphDataType = {
+    label: [],
+    amount: Array(days).fill(null),
+  };
   for (let i = 1; i <= days; i++) {
     mapedGraphData.label[i] =
       (i < 10 ? "0" : "") +
@@ -42,6 +47,7 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
 
 const Charts = () => {
   const [monthlyData, setmonthlyData] = useState<MonthlyDataType[]>([]);
+  const [GraphData, setGraphData] = useState<GraphDataType>();
   const [selectedMonth, setselectedMonth] = useState("");
   function handleMonthSelection(event: any) {
     setselectedMonth(event.target.value);
@@ -64,7 +70,10 @@ const Charts = () => {
 
   useEffect(() => {
     console.log(monthlyData); //Debug Purposes
-    monthlyData.length == 0 ? null : prepareFetchedData(monthlyData);
+
+    if (monthlyData.length != 0) {
+      setGraphData(prepareFetchedData(monthlyData));
+    }
   }, [monthlyData]);
 
   return (
@@ -74,7 +83,7 @@ const Charts = () => {
         <input type="month" min={"2022-01"} onChange={handleMonthSelection} />
       </div>
       <div className="Chart">
-        <Graph />
+        <Graph graphData={GraphData} />
         <p>601 Daily Bookings</p>
       </div>
       <div className="expense">

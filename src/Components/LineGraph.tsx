@@ -66,15 +66,44 @@ const data = {
   datasets: [
     {
       data: [
-        19474, 21056, 20153, 19023, 18671, 20505, 20225, 19307, 18387, 22566,
-        18314, 18776, 0, 22816, 20340, 19651, 19315, 19795, 18851, 18364, 20176,
-        21642, 20684, 21571, 18869, 18444, 20306, 19315, 22566, 20306, 18851,
+        19474,
+        21056,
+        20153,
+        19023,
+        18671,
+        20505,
+        20225,
+        19307,
+        18387,
+        22566,
+        18314,
+        18776,
+        null,
+        22816,
+        20340,
+        19651,
+        19315,
+        19795,
+        18851,
+        18364,
+        20176,
+        21642,
+        20684,
+        21571,
+        18869,
+        18444,
+        20306,
+        19315,
+        22566,
+        20306,
+        18851,
       ],
       borderColor: "rgb(94, 116, 242)",
       backgroundColor: createLinearGradient,
       pointBorderWidth: 5,
       tension: 0.4,
       fill: true,
+      spanGaps: true,
     },
   ],
 };
@@ -130,7 +159,7 @@ const options = {
   },
 };
 
-const LineGraph = () => {
+const LineGraph = ({ graphData }: any) => {
   return (
     <div className="Lineandpolar">
       <div className="lineChart">
