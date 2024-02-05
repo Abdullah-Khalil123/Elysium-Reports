@@ -11,7 +11,6 @@ import {
   RadialLinearScale,
   ArcElement,
 } from "chart.js";
-import { useEffect } from "react";
 
 ChartJS.register(
   LineElement,

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import "../../Styles/charts.css";
 import ExpenseTable from "../ExpenseTable";
 import Graph from "../LineGraph";
