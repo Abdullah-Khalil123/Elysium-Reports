@@ -1,6 +1,35 @@
+import { useEffect, useState } from "react";
 import "../../Styles/Deposits.css";
 
+type installmentType = {
+  id: number;
+  Date: string;
+  AccountNo: string;
+  DepositedFrom: string;
+  DepositedTo: string;
+  DepositMethod: string;
+  refNo: number;
+  Amount: number;
+  Status: number;
+};
+
 const Deposits = () => {
+  const [installments, setinstallments] = useState<installmentType[]>([]);
+
+  useEffect(() => {
+    async function fetchDeposits() {
+      const response = await fetch("/api/Deposits");
+      try {
+        if (!response.ok) {
+          throw new Error("Error Fetch Installments :  " + response.status);
+        }
+        setinstallments(await response.json());
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchDeposits();
+  }, []);
   return (
     <div className="Deposits">
       <table>
@@ -16,16 +45,37 @@ const Deposits = () => {
             <th>Status</th>
           </tr>
         </thead>
-        {DepositRow(1)}
-        {DepositRow(2)}
-        {DepositRow(3)}
+        {installments.map((item) => (
+          <DepositRow
+            AccountNo={item.AccountNo}
+            Amount={item.Amount}
+            Date={item.Date}
+            DepositMethod={item.DepositMethod}
+            DepositedFrom={item.DepositedFrom}
+            DepositedTo={item.DepositedTo}
+            Status={item.Status}
+            id={item.id}
+            refNo={item.refNo}
+            key={item.refNo}
+          />
+        ))}
       </table>
     </div>
   );
 };
 
-function DepositRow(status: number) {
-  const paymentStatus = status;
+function DepositRow(props: {
+  id: number;
+  Date: string;
+  AccountNo: string;
+  DepositedFrom: string;
+  DepositedTo: string;
+  DepositMethod: string;
+  refNo: number;
+  Amount: number;
+  Status: number;
+}) {
+  const paymentStatus = props.Status;
   let paymentclassName = "";
   switch (paymentStatus) {
     case 1:
@@ -46,13 +96,13 @@ function DepositRow(status: number) {
     <tbody>
       <tr className="seperator" />
       <tr className="tableDataRow">
-        <td className="dataDate">January 2024</td>
-        <td>13456</td>
-        <td className="dataName">Nadeem</td>
-        <td>Tahir</td>
-        <td>Online Banking</td>
-        <td>987654321</td>
-        <td>500,000</td>
+        <td className="dataDate">{props.Date}</td>
+        <td>{props.AccountNo}</td>
+        <td className="dataName">{props.DepositedFrom}</td>
+        <td>{props.DepositedTo}</td>
+        <td>{props.DepositMethod}</td>
+        <td>{props.refNo}</td>
+        <td>{props.AccountNo}</td>
         <td>
           <p className={"paymentStatus " + paymentclassName}>
             {paymentclassName} Payment
