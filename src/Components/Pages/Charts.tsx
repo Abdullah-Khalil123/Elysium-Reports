@@ -1,4 +1,4 @@
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import "../../Styles/charts.css";
 import ExpenseTable from "../ExpenseTable";
 import Graph from "../LineGraph";
@@ -41,7 +41,6 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
     mapedGraphData.amount[datarecived[index].day] =
       datarecived[index].rent_amount;
   }
-  // console.log(mapedGraphData);
   return mapedGraphData;
 }
 

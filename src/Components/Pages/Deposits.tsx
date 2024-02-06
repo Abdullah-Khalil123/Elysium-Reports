@@ -8,7 +8,7 @@ type installmentType = {
   DepositedFrom: string;
   DepositedTo: string;
   DepositMethod: string;
-  refNo: number;
+  RefNo: string;
   Amount: number;
   Status: number;
 };
@@ -30,6 +30,7 @@ const Deposits = () => {
     }
     fetchDeposits();
   }, []);
+
   return (
     <div className="Deposits">
       <table>
@@ -55,8 +56,8 @@ const Deposits = () => {
             DepositedTo={item.DepositedTo}
             Status={item.Status}
             id={item.id}
-            refNo={item.refNo}
-            key={item.refNo}
+            refNo={item.RefNo}
+            key={item.RefNo}
           />
         ))}
       </table>
@@ -71,37 +72,47 @@ function DepositRow(props: {
   DepositedFrom: string;
   DepositedTo: string;
   DepositMethod: string;
-  refNo: number;
+  refNo: string;
   Amount: number;
   Status: number;
 }) {
   const paymentStatus = props.Status;
   let paymentclassName = "";
   switch (paymentStatus) {
-    case 1:
+    case 0:
       paymentclassName = "Partial";
       break;
-    case 2:
+    case 1:
       paymentclassName = "Full";
       break;
-    case 3:
+    case 2:
       paymentclassName = "No";
       break;
     default:
       paymentclassName = "";
       break;
   }
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    year: "numeric",
+  };
+  const formattedDate = new Date(props.Date).toLocaleDateString(
+    "en-US",
+    options
+  );
 
   return (
     <tbody>
       <tr className="seperator" />
       <tr className="tableDataRow">
-        <td className="dataDate">{props.Date}</td>
+        <td className="dataDate">{formattedDate}</td>
         <td>{props.AccountNo}</td>
         <td className="dataName">{props.DepositedFrom}</td>
         <td>{props.DepositedTo}</td>
         <td>{props.DepositMethod}</td>
-        <td>{props.refNo}</td>
+        <td className="tooltip">
+          <p className="tooltipData">{props.refNo}</p>
+        </td>
         <td>{props.AccountNo}</td>
         <td>
           <p className={"paymentStatus " + paymentclassName}>
