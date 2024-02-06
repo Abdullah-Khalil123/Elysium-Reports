@@ -5,6 +5,7 @@ import bell from "../../Assets/Icons/bell.svg";
 const NavBar = () => {
   return (
     <div className="NavBar">
+      <div className="mobileButton" onClick={() => {}}></div>
       <h1 className="navbar-title">Statistics</h1>
       <div className="navbuttons">
         <img src={message} alt="" />

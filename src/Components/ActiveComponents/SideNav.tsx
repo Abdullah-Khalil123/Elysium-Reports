@@ -40,30 +40,32 @@ const SideNav = () => {
   ];
 
   return (
-    <div className={sideBarclassName}>
-      <div className="nav-header-icon">
-        <img src={bars} alt="" onClick={handleNavExtend} />
-        <h2 className="nav-header">Elysium Reports</h2>
+    <>
+      <div className={sideBarclassName}>
+        <div className="nav-header-icon">
+          <img src={bars} alt="" onClick={handleNavExtend} />
+          <h2 className="nav-header">Elysium Reports</h2>
+        </div>
+        <ul className="nav-list" ref={sideNavOptions}>
+          {Pages.map((item) => (
+            <Link
+              to={"/" + `${item.name}`}
+              className={"liLink"}
+              key={item.name}
+              onClick={() => handlePageClick(item.name)}
+            >
+              <div
+                className={
+                  item.name === activePage ? "borderline Active" : "borderline"
+                }
+              ></div>
+              <img src={item.icon} alt="" />
+              <p>{item.name}</p>
+            </Link>
+          ))}
+        </ul>
       </div>
-      <ul className="nav-list" ref={sideNavOptions}>
-        {Pages.map((item) => (
-          <Link
-            to={"/" + `${item.name}`}
-            className={"liLink"}
-            key={item.name}
-            onClick={() => handlePageClick(item.name)}
-          >
-            <div
-              className={
-                item.name === activePage ? "borderline Active" : "borderline"
-              }
-            ></div>
-            <img src={item.icon} alt="" />
-            <p>{item.name}</p>
-          </Link>
-        ))}
-      </ul>
-    </div>
+    </>
   );
 };
 

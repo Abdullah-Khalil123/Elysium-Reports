@@ -47,7 +47,7 @@ function prepareFetchedData(datarecived: MonthlyDataType[]) {
 const Charts = () => {
   const [monthlyData, setmonthlyData] = useState<MonthlyDataType[]>([]);
   const [GraphData, setGraphData] = useState<GraphDataType>({
-    amount: Array(30).fill(21000),
+    amount: Array(30).fill(0),
     label: Array(30).fill("00/00"),
   });
   const [selectedMonth, setselectedMonth] = useState("");
@@ -55,6 +55,7 @@ const Charts = () => {
     setselectedMonth(event.target.value);
   }
   useEffect(() => {
+    console.log("Statistics");
     async function getMonthlyData() {
       const uri = "/api/Statistics/" + selectedMonth;
       const response = await fetch(uri);

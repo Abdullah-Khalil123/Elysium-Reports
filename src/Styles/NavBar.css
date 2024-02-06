@@ -29,3 +29,23 @@
 .navbuttons img:hover{
     background-color: rgba(128, 128, 128, 0.197);
 }
+
+
+.mobileButton{
+    display: none;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(176, 176, 176);
+    border-radius: 50px;
+}
+
+@media screen and (max-width:700px){
+    .mobileButton{
+        display: block;
+        margin-left: 30px;
+    }
+    .mobileButton:hover {
+        cursor: pointer;
+        background-color: rgb(196, 196, 196);
+    }
+}

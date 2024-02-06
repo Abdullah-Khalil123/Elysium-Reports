@@ -17,6 +17,7 @@ const Deposits = () => {
   const [installments, setinstallments] = useState<installmentType[]>([]);
 
   useEffect(() => {
+    console.log("Deposits");
     async function fetchDeposits() {
       const response = await fetch("/api/Deposits");
       try {
